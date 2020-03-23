@@ -4,7 +4,7 @@
 const ShoppingCart = require('../models/ShoppingCart')
 const shoppingCartsController = {}
 
-//Displays a list of items.
+//Displays a list of items
 shoppingCartsController.index = async (req, res, next) => {
   try {
     const viewData = {
@@ -22,7 +22,7 @@ shoppingCartsController.index = async (req, res, next) => {
   }
 }
 
-// Returns a HTML form for creating a new item.
+// Returns a HTML form for creating a new item
 shoppingCartsController.new = async (req, res) => {
   const viewData = {
     name: '',
@@ -33,7 +33,7 @@ shoppingCartsController.new = async (req, res) => {
   res.render('..', { viewData })
 }
 
-// Creates a new item.
+// Creates a new item
 shoppingCartsController.create = async (req, res) => {
   try {
     const shoppingCart = new ShoppingCart({
@@ -50,7 +50,7 @@ shoppingCartsController.create = async (req, res) => {
   }
 }
 
-// Returns a HTML form for editing an item.
+// Returns a HTML form for editing an item
 shoppingCartsController.edit = async (req, res) => {
   try {
     const shoppingCart = await ShoppingCart.findOne({ _id: req.params.id })
@@ -67,7 +67,7 @@ shoppingCartsController.edit = async (req, res) => {
   }
 }
 
-//Updates a specific item.
+//Updates a specific item
 shoppingCartsController.update = async (req, res) => {
   try {
     const result = await ShoppingCart.updateOne({ _id: req.body.id }, {

@@ -1,4 +1,4 @@
-//The starting  point of the application.
+//The starting  point of the application
 
 'use strict'
 
