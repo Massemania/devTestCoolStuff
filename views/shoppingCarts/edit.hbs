@@ -1,0 +1,25 @@
+<h1>
+  <span class="far fa-edit"></span> Edit
+</h1>
+<form method="post" action="/{{viewData.id}}/update">
+ <input type="hidden" name="id" value="{{viewData.id}}" />
+    <div class="form-row align-items-center">
+        <div class="form-group col-md-6">
+            <label for="name">Item</label>
+            <input type="text" class="form-control" name="name" placeholder="Update name of item here:"  value="{{viewData.name}}" required="required" autofocus="autofocus" />
+        </div>
+        <div class="form-group col-md-1">
+            <label for="quantity">Quantity</label>
+            <input type="number" class="form-control" name="quantity" placeholder="Update quantity:" value="{{viewData.quantity}}" required="required" min="1"/>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="name">Category</label>
+          <select id="category" class="form-control" name="category" placeholder="Update category:">
+            <option value="Food">Food</option>
+            <option value="Snack">Snack</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Update item</button>
+</form>

@@ -1,0 +1,22 @@
+{
+  "name": "devtestcoolstuff",
+  "version": "1.0.0",
+  "description": "Arbetsprov CoolStuff",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Massemania/devTestCoolStuff.git"
+  },
+  "author": "Mats Magnusson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Massemania/devTestCoolStuff/issues"
+  },
+  "homepage": "https://github.com/Massemania/devTestCoolStuff#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

@@ -1,0 +1,70 @@
+<h1>
+    <span class="far fa-list-alt"></span> Create an item for the shopping list
+</h1>
+
+<form method="POST" action="/create">
+    <div class="form-row align-items-center">
+        <div class="form-group col-md-6">
+            <label for="name">Item</label>
+            <input type="text" class="form-control" name="name" placeholder="Enter name of item here:" required="required" autofocus="autofocus" />
+        </div>
+        <div class="form-group col-md-1">
+            <label for="quantity">Quantity</label>
+            <input type="number" class="form-control" name="quantity" placeholder="Enter quantity:" min="1" value="1"/>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="name">Category</label>
+            <select id="category" class="form-control" name="category" placeholder="Select category:">
+                <option value="Food">Food</option>
+                <option value="Snack">Snack</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Add item</button>
+</form>
+<br>
+<br>
+
+
+<h1>
+  <span class="far fa-plus-square"></span> Shopping list
+</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Category</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#if viewData.shoppingCarts.length }}
+        {{#each viewData.shoppingCarts}}
+        <tr>
+            <td class="w-100">{{this.name}}</td>
+            <td class="w-100">{{this.quantity}}</td>
+            <td class="w-100">{{this.category}}</td>
+            <td class="w-100">
+                <a href="/{{this.id}}/edit"><span class="far fa-edit ed-del-button" title="Edit item"></span></a>
+            </td>
+            <td>
+               <form method="post" action="/{{this.id}}/delete">
+               <input type="hidden" name="id" value="{{this.id}}" />
+               <button type="submit" style="border:none" class="ed-del-button"><span class="far fa-trash-alt" title="Delete item"></span></button>
+               </form>
+            </td>
+        </tr>
+        {{/each}}
+        {{else}}
+        <tr>
+            <td colspan="3" class="text-center text-danger">
+                There are no items in the shopping cart to display.
+            </td>
+        </tr>
+        {{/if}}
+    </tbody>
+</table>
